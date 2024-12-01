@@ -1,4 +1,4 @@
-Welcome to my *Daily-Weekly-Challenges* repository! 🎉  
+# Welcome to my *Daily-Weekly-Challenges* repository! 🎉  
 
 This repository is part of my learning journey to continuously improve my programming skills, explore new technologies, and have fun coding along the way.  
 
