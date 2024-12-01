@@ -3,10 +3,8 @@
 This repository is part of my learning journey to continuously improve my programming skills, explore new technologies, and have fun coding along the way.  
 
 ## 📚 Purpose of this Repository  
-1. **Learn new things**: Each day or week, I take on small, manageable projects to explore new concepts, tools, and frameworks.  
-2. **Improve my skills**: By coding regularly, I aim to become better and more efficient at solving problems.  
-3. **Encourage creativity**: These projects give me an opportunity to develop and implement new ideas.  
-4. **Share knowledge**: I share my code and thoughts to get feedback from others and perhaps inspire fellow developers.  
+1. **Learn new things**: Each day or week, I take on small, manageable projects to explore new concepts, tools, and frameworks.   
+2. **Encourage creativity**: These projects give me an opportunity to develop and implement new ideas.   
 
 ## 🗂 Structure  
 This repository is divided into daily (*Daily*) and weekly (*Weekly*) projects:  
