@@ -1,4 +1,5 @@
 # Welcome to ExpandingCards
+Welcome to Expanding Cards, this is a frontend project for about 1 day.
 
 ## 📋 Features
 Dynamic cards: cards expand when clicked or when the user presses the Enter/Space bar.
