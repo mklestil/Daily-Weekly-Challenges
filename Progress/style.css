@@ -83,3 +83,19 @@ body {
     margin: 5px;
     font-size: 14px;
 }
+
+.btn:active {
+    transform: scale(1.1);
+}
+
+.btn:focus, .btn:hover {
+    border: 1px red solid;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    background-color: var(--line-border-empty);
+}
+.btn:disabled:active{
+    transform: scale(1.0);
+}
