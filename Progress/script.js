@@ -41,6 +41,15 @@ function updateUI(){
         //update width, start with 0, in %
         progress.style.width = ((actives.length - 1) / (circles.length - 1) * 100) + '%';
         
+        //buttons
+        if(activeValue === 1){
+            btnPrev.disabled = true;
+        }else if(activeValue === circles.length){
+            btnNext.disabled = true;
+        }else{
+            btnNext.disabled = false;
+            btnPrev.disabled = false;
+        }
     })
 
 }
