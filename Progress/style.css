@@ -1,5 +1,5 @@
 :root {
-    --line-border-blue: green;
+    --line-border-green: green;
     --line-border-empty: grey;
 }
 
@@ -24,7 +24,7 @@ body {
 
 .progress-container::before {
     content: '';
-    background-color: var(--line-border-grey);
+    background-color: var(--line-border-empty);
     position: absolute;
     top: 50%;
     left: 0;
@@ -55,6 +55,17 @@ body {
     z-index: -1;
     transition: .4s ease;
 }
+.progress-active {
+    background-color: var(--line-border-green);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index: -1;
+    transition: .4s ease;
+}
 
 .circle {
     width: 50px;
@@ -69,11 +80,11 @@ body {
 }
 
 .circle.active {
-    border-color: var(--line-border-blue);
+    border-color: var(--line-border-green);
 }
 
 .btn {
-    background-color: var(--line-border-blue);
+    background-color: var(--line-border-green);
     color: white;
     border: 0;
     border-radius: 6px;
