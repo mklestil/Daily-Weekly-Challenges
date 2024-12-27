@@ -15,18 +15,42 @@
 </head>
 <body>
     <div class="container">
-        <div class="progress-container">
-            <div class="progress" id="progress"></div>
-            <div class="progress progress-active" id="progress-active"></div>
-            <div class="circle active">1</div>
-            <div class="circle">2</div>
-            <div class="circle">3</div>
-            <div class="circle">4</div>
-            <div class="circle">5</div>
+        <h1>Progress Example</h1>
+        <div class="selection-container">
+            <h2>Selection Values</h2>
+            <form id="selection-form">
+                <label for="values">Number of circles:</label>
+                <select id="values" name="values">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                </select>
+                <button class="btn" id="submit">Submit</button>
+            </form>
         </div>
-        <button class="btn" id="prev" disabled>Prev</button>
-        <button class="btn" id="next">Next</button>
-    </div> 
+        <hr>
+        <div class="example-container">
+            <h2>Test Progress</h2>
+            <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+                <div class="progress progress-active" id="progress-active"></div>
+                <div class="circle active">1</div>
+                <div class="circle">2</div>
+                <div class="circle">3</div>
+                <div class="circle">4</div>
+                <div class="circle">5</div>
+                
+            </div>
+            <button class="btn" id="prev" disabled>Prev</button>
+            <button class="btn" id="next">Next</button>
+            </div> 
+        </div>
+        
     <script src="script.js"></script>
 </body>
 </html>

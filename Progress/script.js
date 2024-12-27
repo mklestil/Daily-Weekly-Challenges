@@ -2,6 +2,9 @@ const btnNext = document.getElementById("next");
 const btnPrev = document.getElementById("prev");
 const progress = document.getElementById("progress-active");
 const circles = document.querySelectorAll(".circle");
+const btnSubmit = document.getElementById("selection-form");
+const select = document.getElementById("values");
+const progressContainer = document.getElementById("progress-container");
 
 let activeValue = 1;
 
@@ -26,6 +29,23 @@ btnPrev.addEventListener("click", () => {
     }
     console.log(activeValue);
     updateUI();
+})
+
+btnSubmit.addEventListener("submit", () => {
+    event.preventDefault();
+
+    //number of selected circles
+    const numberOfCircles = parseInt(select.value, 10);
+
+    //delet circles
+    progressContainer.innerHTML = `
+    <div class="progress" id="progress"></div>
+    <div class="progress progress-active" id="progress-active"></div>`;
+    
+    //create circles
+
+
+
 })
 
 function updateUI(){

@@ -35,7 +35,7 @@ body {
     transition: .4s ease;
 }
 
-.progress-container {
+.progress-container, .circle-container {
     display: flex;
     justify-content: space-between;
     position: relative;
