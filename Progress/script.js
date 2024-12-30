@@ -1,7 +1,7 @@
 const btnNext = document.getElementById("next");
 const btnPrev = document.getElementById("prev");
-const progress = document.getElementById("progress-active");
-const circles = document.querySelectorAll(".circle");
+let progress = document.getElementById("progress-active");
+let circles = document.querySelectorAll(".circle");
 const btnSubmit = document.getElementById("selection-form");
 const select = document.getElementById("values");
 const progressContainer = document.getElementById("progress-container");
@@ -35,20 +35,34 @@ btnSubmit.addEventListener("submit", () => {
     event.preventDefault();
 
     //number of selected circles
-    const numberOfCircles = parseInt(select.value, 10);
+    let numberOfCircles = parseInt(select.value, 10);
 
     //delet circles
     progressContainer.innerHTML = `
     <div class="progress" id="progress"></div>
     <div class="progress progress-active" id="progress-active"></div>`;
-    
     //create circles
+    for(let i = 1; i <= numberOfCircles; i++){
+        //create circle
+        const circle = document.createElement('div');
+        circle.classList.add('circle');
+        if (i === 1) {
+            circle.classList.add('active'); // first circle active
+        }
+        circle.textContent = i;
+        //add circle to div
+        progressContainer.appendChild(circle);
+    };
 
-
-
+    //reset activeValue
+    activeValue = 1;
 })
 
 function updateUI(){
+    //update circles and progress
+    circles = document.querySelectorAll(".circle");
+    progress = document.getElementById("progress-active");
+
     circles.forEach((circle, indx) => {
         if(indx < activeValue){
             circle.classList.add("active");
