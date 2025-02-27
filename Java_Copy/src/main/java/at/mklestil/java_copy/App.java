@@ -7,13 +7,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * The Main Class of the application.
+ * Start the JavaFX Ui.
+ */
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         MainView view = new MainView();
-        MyController controller = new MyController(view);
+        MyController controller = new MyController(view, stage);
 
-        stage.setTitle("Hello World!");
+        stage.setTitle("Copy Desktop");
         stage.setScene(view.getScene());
         stage.show();
     }
