@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 
 public class MainView {
     private FlowPane root;
@@ -26,8 +27,12 @@ public class MainView {
         root.setVgap(20);
         root.setHgap(20);
 
+        VBox vBox = new VBox();
+        vBox.setPrefWidth(350);
+        vBox.getChildren().addAll(statusLabel, listView);
+
         //add elemets to root
-        root.getChildren().addAll(infoLabel, progressBar, progressIndicator, statusLabel, startButton, cancleButton, listView);
+        root.getChildren().addAll(infoLabel, progressBar, progressIndicator, startButton, cancleButton,vBox );
     }
 
     public FlowPane getRoot() {

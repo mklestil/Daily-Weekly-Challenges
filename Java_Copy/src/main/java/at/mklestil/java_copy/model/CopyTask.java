@@ -1,6 +1,8 @@
 package at.mklestil.java_copy.model;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -19,8 +21,8 @@ public class CopyTask extends Task<List<File>> {
 
     private File selectedDir;
 
-    public CopyTask(File selectedDir) {
-        this.selectedDir = selectedDir;
+    public CopyTask() {
+
     }
 
 
@@ -67,5 +69,9 @@ public class CopyTask extends Task<List<File>> {
 
     public void setSelectedDir(File selectedDir) {
         this.selectedDir = selectedDir;
+    }
+
+    public List<File> getListOfCopiedFiles() {
+        return listOfCopiedFiles;
     }
 }
