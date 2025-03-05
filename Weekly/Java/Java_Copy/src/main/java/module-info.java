@@ -8,6 +8,7 @@
 module at.mklestil.java_copy {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
     opens at.mklestil.java_copy to javafx.fxml;
     exports at.mklestil.java_copy;
