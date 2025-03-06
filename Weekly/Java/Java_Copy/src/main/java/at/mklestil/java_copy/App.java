@@ -28,6 +28,10 @@ public class App extends Application {
         stage.show();
     }
 
+    /**
+     * Puts the icon on the stage if the input stream is working.
+     * @param stage
+     */
     public void setMyIcon(Stage stage){
         //Set Icon and check
         InputStream iconStream = getClass().getResourceAsStream("/images/Icon.png");
