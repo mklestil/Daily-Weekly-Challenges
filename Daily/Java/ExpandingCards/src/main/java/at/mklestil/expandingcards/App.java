@@ -14,7 +14,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         MainView view = new MainView();
         MainController controller = new MainController(view);
-        Scene scene = new Scene(view.getRoot(), 320, 240);
+        Scene scene = new Scene(view.getRoot(), 800, 400);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
