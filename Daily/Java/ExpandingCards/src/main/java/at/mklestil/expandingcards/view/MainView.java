@@ -11,10 +11,13 @@ public class MainView {
     public MainView() {
         FlowPane containter = new FlowPane();
         Label title = new Label("Expanding Cards");
-        containter.getChildren().addAll(new ExpandingCard("Card 1"),
-                new ExpandingCard("Card 2"),
-                new ExpandingCard("Card 3"),
-                new ExpandingCard("Card 4"));
+        containter.getChildren().addAll(
+                new ExpandingCard("Card 1", "/img/1.jpg"),
+                new ExpandingCard("Card 2", "/img/2.jpg"),
+                new ExpandingCard("Card 3", "/img/3.jpg"),
+                new ExpandingCard("Card 4", "/img/4.jpg"),
+                new ExpandingCard("Card 5", "/img/5.jpg")
+        );
 
         root.getChildren().addAll(title, containter);
     }
