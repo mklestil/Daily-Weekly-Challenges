@@ -57,9 +57,11 @@ public class ExpandingCard extends StackPane {
     private void toggleExpand() {
         if(expanded){
             imageView.setFitWidth(100);
+            background.setWidth(100);
             expanded = false;
         }else{
             imageView.setFitWidth(300);
+            background.setWidth(300);
             expanded = true;
         }
     }
