@@ -19,7 +19,7 @@ public class ExpandingCard extends StackPane {
     public ExpandingCard(String text, String imagePath) {
         //Background
         background = new Rectangle(100, 200); //Draw a rectangle
-        background.setArcWidth(20); // round corners
+        background.setArcHeight(20); // round corners
         background.setArcWidth(20);
         background.setFill(Color.LIGHTGREEN); // If the image does not load
 
