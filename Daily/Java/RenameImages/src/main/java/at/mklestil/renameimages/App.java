@@ -13,7 +13,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         MainView view = new MainView();
-        MainController controller = new MainController(view);
+        MainController controller = new MainController(view, stage);
         Scene scene = new Scene(view.getRoot(), 320, 240);
         stage.setTitle("Rename Images");
         stage.setScene(scene);

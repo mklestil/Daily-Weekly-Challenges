@@ -12,7 +12,7 @@ import java.util.List;
 public class MainView {
     private BorderPane root;
     private ListView<String> listView; //UI
-    private List<String> list; //Names of Data
+
     private ObservableList<String> observableList;
     private String newFileName;
     private final Menu menu = new Menu("File");
