@@ -9,6 +9,10 @@ import javafx.scene.layout.VBox;
 
 import java.util.List;
 
+/**
+ * My MainView class, create the view, UI, Scene in JavaFX
+ */
+
 public class MainView {
     private BorderPane root;
     private ListView<String> listView; //UI

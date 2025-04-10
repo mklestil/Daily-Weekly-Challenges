@@ -9,6 +9,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * My Main Class, create JavaFX, start the app.
+ */
+
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {

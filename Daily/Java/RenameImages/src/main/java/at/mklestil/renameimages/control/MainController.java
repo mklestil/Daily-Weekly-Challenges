@@ -8,6 +8,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * MainController, Manages view and logic, takes care of event handling
+ */
 public class MainController {
     private MainView view;
     private List<File> listeOfFiles; //List of Files
