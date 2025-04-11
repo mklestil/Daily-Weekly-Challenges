@@ -1,6 +1,8 @@
 package at.mklestil.renameimages.control;
 
 import at.mklestil.renameimages.view.MainView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -35,8 +37,9 @@ public class MainController {
                 for(File file : listeOfFiles){
                     String fileName = file.getName();
                     nameList.add(fileName);
-
                 }
+                ObservableList<String> observerableList = FXCollections.observableArrayList(nameList);
+                view.setObservableList(observerableList);
                 System.out.println("Size of List nameList: " + nameList.size());
             }
         });

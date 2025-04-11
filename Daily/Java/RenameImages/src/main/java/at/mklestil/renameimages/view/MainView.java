@@ -25,12 +25,21 @@ public class MainView {
 
     public MainView(){
         VBox leftUI = createMyUI();
+        VBox listUI = createListUI();
         root = new BorderPane();
 
         root.setLeft(leftUI);
-
+        root.setRight(listUI);
         root.setTop(createMyMenu());
 
+
+    }
+
+    private VBox createListUI() {
+        VBox listVBox = new VBox();
+        listView = new ListView<String>();
+        listVBox.getChildren().add(listView);
+        return listVBox;
     }
 
     private MenuBar createMyMenu() {
@@ -67,5 +76,10 @@ public class MainView {
 
     public MenuItem getExit() {
         return exit;
+    }
+
+    public void setObservableList(ObservableList<String> observableList){
+        this.observableList = observableList;
+        listView.setItems(observableList);
     }
 }
