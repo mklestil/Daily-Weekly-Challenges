@@ -1,5 +1,6 @@
 package at.mklestil.renameimages.control;
 
+import at.mklestil.renameimages.model.RenameModel;
 import at.mklestil.renameimages.view.MainView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,10 +19,12 @@ public class MainController {
     private List<File> listeOfFiles; //List of Files
     private ArrayList<String> nameList = new ArrayList<String>();
     private Stage stage;
+    private RenameModel renameModel;
 
     public MainController(MainView view, Stage stage){
         this.view = view;
         this.stage = stage;
+        renameModel = new RenameModel(this.view, listeOfFiles);
 
         openHandler();
         exitHandler();

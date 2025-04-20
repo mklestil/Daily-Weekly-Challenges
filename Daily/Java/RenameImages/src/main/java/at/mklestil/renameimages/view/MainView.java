@@ -22,6 +22,8 @@ public class MainView {
     private final Menu menu = new Menu("File");
     private MenuItem open;
     private MenuItem exit;
+    private TextField inputField;
+    private Button buttonRename = new Button("Rename");
 
     public MainView(){
         VBox leftUI = createMyUI();
@@ -35,6 +37,10 @@ public class MainView {
 
     }
 
+    /**
+     * Create the right UI, with the ListView
+     * @return
+     */
     private VBox createListUI() {
         VBox listVBox = new VBox();
         listView = new ListView<String>();
@@ -42,6 +48,10 @@ public class MainView {
         return listVBox;
     }
 
+    /**
+     * Create the Menu
+     * @return
+     */
     private MenuBar createMyMenu() {
         MenuBar menuBar = new MenuBar();
          open = new MenuItem("Öffnen");
@@ -52,13 +62,16 @@ public class MainView {
         return menuBar;
     }
 
+    /**
+     * Create the left UI, Buttons, Input to rename the data
+     * @return
+     */
     private VBox createMyUI() {
         Label label = new Label("New Name: ");
-        TextField inputField = new TextField();
-        Button button = new Button("Rename");
+        inputField = new TextField();
         VBox leftUI = new VBox();
         leftUI.setAlignment(Pos.CENTER);
-        leftUI.getChildren().addAll(label,inputField,button);
+        leftUI.getChildren().addAll(label,inputField,buttonRename);
         return  leftUI;
     }
 
@@ -76,6 +89,14 @@ public class MainView {
 
     public MenuItem getExit() {
         return exit;
+    }
+
+    public Button getButtonRename() {
+        return buttonRename;
+    }
+
+    public TextField getInputField() {
+        return inputField;
     }
 
     public void setObservableList(ObservableList<String> observableList){
