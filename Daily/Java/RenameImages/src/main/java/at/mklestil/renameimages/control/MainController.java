@@ -24,10 +24,17 @@ public class MainController {
     public MainController(MainView view, Stage stage){
         this.view = view;
         this.stage = stage;
-        renameModel = new RenameModel(this.view, listeOfFiles);
+        renameModel = new RenameModel(this.view);
 
         openHandler();
         exitHandler();
+        renameHandler();
+    }
+
+    private void renameHandler() {
+        view.getButtonRename().setOnAction(event -> {
+            renameModel.renameFiles(listeOfFiles);
+        });
     }
 
     private void openHandler() {

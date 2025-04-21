@@ -23,7 +23,7 @@ public class MainView {
     private MenuItem open;
     private MenuItem exit;
     private TextField inputField;
-    private Button buttonRename = new Button("Rename");
+    private Button buttonRename;
 
     public MainView(){
         VBox leftUI = createMyUI();
@@ -70,6 +70,7 @@ public class MainView {
         Label label = new Label("New Name: ");
         inputField = new TextField();
         VBox leftUI = new VBox();
+        buttonRename = new Button("Rename");
         leftUI.setAlignment(Pos.CENTER);
         leftUI.getChildren().addAll(label,inputField,buttonRename);
         return  leftUI;
@@ -102,5 +103,13 @@ public class MainView {
     public void setObservableList(ObservableList<String> observableList){
         this.observableList = observableList;
         listView.setItems(observableList);
+    }
+
+    public ListView<String> getListView() {
+        return listView;
+    }
+
+    public ObservableList<String> getObservableList() {
+        return observableList;
     }
 }
