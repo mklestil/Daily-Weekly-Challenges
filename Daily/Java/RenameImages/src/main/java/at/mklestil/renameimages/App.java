@@ -14,11 +14,14 @@ import java.io.IOException;
  */
 
 public class App extends Application {
+
+    private int width = 320;
+
     @Override
     public void start(Stage stage) throws IOException {
-        MainView view = new MainView();
+        MainView view = new MainView(width);
         MainController controller = new MainController(view, stage);
-        Scene scene = new Scene(view.getRoot(), 320, 240);
+        Scene scene = new Scene(view.getRoot(), width, 240);
         stage.setTitle("Rename Images");
         stage.setScene(scene);
         stage.show();

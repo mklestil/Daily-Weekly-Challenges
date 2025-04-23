@@ -1,6 +1,8 @@
 package at.mklestil.renameimages.view;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -17,15 +19,16 @@ public class MainView {
     private BorderPane root;
     private ListView<String> listView; //UI
 
-    private ObservableList<String> observableList;
+    private ObservableList<String> observableList = FXCollections.observableArrayList();
     private String newFileName;
     private final Menu menu = new Menu("File");
     private MenuItem open;
     private MenuItem exit;
     private TextField inputField;
     private Button buttonRename;
+    private final ProgressBar progressBar = new ProgressBar(0);
 
-    public MainView(){
+    public MainView(int width){
         VBox leftUI = createMyUI();
         VBox listUI = createListUI();
         root = new BorderPane();
@@ -33,6 +36,8 @@ public class MainView {
         root.setLeft(leftUI);
         root.setRight(listUI);
         root.setTop(createMyMenu());
+        root.setBottom(progressBar);
+        progressBar.setPrefWidth(width);
 
 
     }
@@ -44,7 +49,8 @@ public class MainView {
     private VBox createListUI() {
         VBox listVBox = new VBox();
         listView = new ListView<String>();
-        listVBox.getChildren().add(listView);
+        listView.setItems(observableList);
+        listVBox.getChildren().addAll(listView);
         return listVBox;
     }
 
@@ -100,16 +106,14 @@ public class MainView {
         return inputField;
     }
 
-    public void setObservableList(ObservableList<String> observableList){
-        this.observableList = observableList;
-        listView.setItems(observableList);
-    }
-
     public ListView<String> getListView() {
         return listView;
     }
 
     public ObservableList<String> getObservableList() {
         return observableList;
+    }
+    public ProgressBar getProgressBar(){
+        return progressBar;
     }
 }

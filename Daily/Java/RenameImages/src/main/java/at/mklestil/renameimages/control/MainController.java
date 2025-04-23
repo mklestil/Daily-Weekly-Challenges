@@ -4,6 +4,7 @@ import at.mklestil.renameimages.model.RenameModel;
 import at.mklestil.renameimages.view.MainView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -16,16 +17,19 @@ import java.util.List;
  */
 public class MainController {
     private MainView view;
-    private List<File> listeOfFiles; //List of Files
-    private ArrayList<String> nameList = new ArrayList<String>();
+    private List<File> listOfFiles; //List of Files
     private Stage stage;
     private RenameModel renameModel;
 
     public MainController(MainView view, Stage stage){
         this.view = view;
         this.stage = stage;
-        renameModel = new RenameModel(this.view);
+        renameModel = new RenameModel();
 
+        registerEventHandlers();
+    }
+
+    private void registerEventHandlers() {
         openHandler();
         exitHandler();
         renameHandler();
@@ -33,7 +37,8 @@ public class MainController {
 
     private void renameHandler() {
         view.getButtonRename().setOnAction(event -> {
-            renameModel.renameFiles(listeOfFiles);
+            // rename Files and update UI
+            updateUI(renameModel.renamedFiles(listOfFiles, getRenameInput()));
         });
     }
 
@@ -41,18 +46,64 @@ public class MainController {
         view.getOpen().setOnAction(event -> {
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("png", "*.png"));
-            listeOfFiles = fileChooser.showOpenMultipleDialog(stage);
+            listOfFiles = fileChooser.showOpenMultipleDialog(stage);
 
-            if (listeOfFiles != null){
-                for(File file : listeOfFiles){
-                    String fileName = file.getName();
-                    nameList.add(fileName);
-                }
-                ObservableList<String> observerableList = FXCollections.observableArrayList(nameList);
-                view.setObservableList(observerableList);
-                System.out.println("Size of List nameList: " + nameList.size());
+            if (listOfFiles != null) {
+                // Background task to avoid blocking the UI
+                Task<List<String>> loadFileNamesTask = new Task<>() {
+                    @Override
+                    protected List<String> call() {
+                        List<String> nameList = new ArrayList<>();
+                        for (int i = 0; i < listOfFiles.size(); i++) {
+                            nameList.add(listOfFiles.get(i).getName());
+                            //update progress
+                            updateProgress(i+ 1 , listOfFiles.size());
+                        }
+                        return nameList;
+                    }
+                };
+
+                // When task finished: Update UI
+                loadFileNamesTask.setOnSucceeded(workerStateEvent -> {
+                    List<String> nameList = loadFileNamesTask.getValue();
+                    view.getObservableList().setAll(nameList);
+                    System.out.println("Size of List nameList: " + nameList.size());
+                    view.getListView().refresh(); // Optional
+                    view.getListView().setVisible(true);
+                });
+
+                // Error Handling
+                loadFileNamesTask.setOnFailed(workerStateEvent -> {
+                    Throwable ex = loadFileNamesTask.getException();
+                    ex.printStackTrace();
+                });
+
+                // Task start & progressbar binding
+                view.getProgressBar().progressProperty().bind(loadFileNamesTask.progressProperty());
+                new Thread(loadFileNamesTask).start();
             }
         });
+    }
+
+    private String getRenameInput(){
+        /**
+         * Check input textfield
+         * */
+        String inputName = view.getInputField().getText();
+        if(inputName == null || inputName.isEmpty()){
+            System.out.println("Error: input is null");
+            inputName = "Error";
+        }
+        return inputName;
+    }
+
+    /**
+     * Update UI
+     * @param renamedNames
+     */
+    private void updateUI(List<String> renamedNames){
+        view.getObservableList().setAll(renamedNames);
+        view.getListView().refresh();
     }
 
     private void exitHandler(){
