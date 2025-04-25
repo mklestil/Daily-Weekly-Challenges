@@ -12,6 +12,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * My Test to test the renamemodel.
+ */
 class RenameModelTest {
     private RenameModel model;
     private File tempDir;
@@ -47,6 +50,7 @@ class RenameModelTest {
         File expected1 = new File(tempDir, "renamed1.png");
         File expected2 = new File(tempDir, "renamed2.png");
 
+        // Test
         assertTrue(expected1.exists());
         assertTrue(expected2.exists());
         assertFalse(file1.exists());

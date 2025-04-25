@@ -18,6 +18,14 @@ public class RenameModel {
 
     }
 
+    /**
+     * Create new File name and rename the file with the new filename.
+     * Return the new File.
+     * @param file
+     * @param baseName
+     * @param count
+     * @return
+     */
     public File renameFile(File file, String baseName, int count) {
         String newName = baseName + count + ".png";
         File renamed = new File(file.getParent(), newName);
@@ -30,13 +38,14 @@ public class RenameModel {
         return renamed;
     }
 
+    /**
+     * With for loop rename files with the renameFile Methode.
+     * Return a Array of Strings with the new Filenames.
+     */
     public List<String> renamedFiles(List<File> files, String baseName){
         int count = 1;
         List<String> renamedNames = new ArrayList<>();
 
-        /**
-         * Rename files with model
-         */
         for (File file : files) {
             File renamedFile = renameFile(file, baseName, count++);
             renamedNames.add(renamedFile.getName());

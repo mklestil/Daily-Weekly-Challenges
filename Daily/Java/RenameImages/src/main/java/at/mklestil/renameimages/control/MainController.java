@@ -42,6 +42,10 @@ public class MainController {
         });
     }
 
+    /**
+     * Open a FileChosser to select Files, then start a new Task.
+     * I use the "Task" to handle many selected files, and show in view a Progessbar.
+     */
     private void openHandler() {
         view.getOpen().setOnAction(event -> {
             FileChooser fileChooser = new FileChooser();
